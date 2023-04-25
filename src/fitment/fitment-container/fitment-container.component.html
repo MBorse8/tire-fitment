@@ -1,0 +1,46 @@
+
+<mat-card style="background-color: black;">
+  <h1 style="text-align: center; color: white;">Tire fitment engine</h1>
+</mat-card>
+
+<div style="margin: 30px; text-align: center;">
+  <mat-form-field appearance="fill" style="margin-right: 20px">
+    <mat-label>Choose Year</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let year of years$ | async" value="year">
+        <a (click)="getVehicleMake(year)"> {{ year }} </a>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" style="margin-right: 20px">
+    <mat-label>Choose Make</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let make of makes$ | async" value="make">
+        <a (click)="getVehicleModel(selectedYear, make)"> {{ make }} </a>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" style="margin-right: 20px">
+    <mat-label>Choose Model</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let model of models$ | async" value="model">
+        <a (click)="getVehicleTrim(selectedYear, selectedMake, model)"> {{ model }} </a>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" style="margin-right: 20px">
+    <mat-label>Choose Trim</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let trim of trims$ | async" value="trim">
+        <a> {{ trim }} </a>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>
+
+
+
